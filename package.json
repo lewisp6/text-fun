@@ -1,0 +1,17 @@
+{
+  "name": "fun-with-text",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.4.1"
+  },
+  "dependencies": {
+    "ramda": "^0.25.0"
+  }
+}
