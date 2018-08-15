@@ -1,3 +1,12 @@
+function checkFirstLetterUppercase(word) {
+  const firstLetter = word[0];
+  return firstLetter === firstLetter.toUpperCase();
+};
+
+function checkUpperCaseWord(word) {
+  return word === word.toUpperCase();
+}
+
 const filter = {
   findWordsStartingWithCapitalLetter: (words) => {
     return words.filter((word) => checkFirstLetterUppercase(word));
@@ -7,14 +16,5 @@ const filter = {
     return words.filter((word) => checkUpperCaseWord(word));
   }
 };
-
-function checkFirstLetterUppercase(word) {
-  const firstLetter = word[0];
-  return firstLetter === firstLetter.toUpperCase();
-};
-
-function checkUpperCaseWord(word) {
-  return word === word.toUpperCase();
-}
 
 module.exports = filter;
