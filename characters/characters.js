@@ -1,10 +1,7 @@
 const R = require('ramda');
 
 const countRegexMatch = (regex) => {
-  return function(string) {
-    const match = string.match(regex);
-    return match.length;
-  }
+  return R.compose(R.length, R.match(regex));
 }
 
 const characters = {
