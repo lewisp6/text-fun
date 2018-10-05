@@ -1,19 +1,9 @@
+const R = require('ramda');
+
 const sentenceFunctions = {
-  getListOfWords: (sentence) => {
-    if (!sentence) {
-      return null;
-    }
-
-    return sentence.split(' ');
-  },
-
-  stripPunctuation: (sentence) => {
-    if (!sentence) {
-      return null;
-    }
-
-    return sentence.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
-  }
+  getListOfWords: (sentence) => sentence ? R.split(' ', sentence) : null,
+  stripPunctuation: (sentence) => sentence ?
+    R.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"", sentence) : null,
 };
 
 module.exports = sentenceFunctions;
