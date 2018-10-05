@@ -1,13 +1,13 @@
 const R = require('ramda');
 
-const countRegexMatch = (regex) => {
+const countRegexMatches = (regex) => {
   return R.compose(R.length, R.match(regex));
 }
 
 const characters = {
   getCharacterCount: (characters = '') => characters.length,
-  countVowls: countRegexMatch(/[aeiou]/gi),
-  countConsonants: countRegexMatch(/[bcdfghjklmnpqrstvxzwy]/ig),
+  countVowls: countRegexMatches(/[aeiou]/gi),
+  countConsonants: countRegexMatches(/[bcdfghjklmnpqrstvxzwy]/ig),
 }
 
 module.exports = characters;
