@@ -1,20 +1,13 @@
-function checkFirstLetterUppercase(word) {
-  const firstLetter = word[0];
-  return firstLetter === firstLetter.toUpperCase();
-};
+const R = require('ramda');
 
-function checkUpperCaseWord(word) {
-  return word === word.toUpperCase();
-}
+const filterBy = criteria => R.filter(criteria);
+
+const isWordUppercase = word => word === word.toUpperCase();
+const isFirstLetterUppercase = word => word[0] === word[0].toUpperCase();
 
 const filter = {
-  findWordsStartingWithCapitalLetter: (words) => {
-    return words.filter((word) => checkFirstLetterUppercase(word));
-  },
-
-  findUppercaseWords: (words) => {
-    return words.filter((word) => checkUpperCaseWord(word));
-  }
+  findWordsStartingWithCapitalLetter: filterBy(isFirstLetterUppercase),
+  findUppercaseWords: filterBy(isWordUppercase),
 };
 
 module.exports = filter;
