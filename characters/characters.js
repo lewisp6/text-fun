@@ -1,25 +1,16 @@
-const characters = {
-  getCharacterCount: (string = '') => {
-    return string.length;
-  },
+const R = require('ramda');
 
-  countVowls: (string = '') => {
-    let vowls = string.match(/[aeiou]/gi);
-    let count = 0;
-    if (vowls) {
-      count = characters.getCharacterCount(vowls);
-    }
-    return count;
-  },
-
-  countConsonants: (string = '') => {
-    let consonants = string.match(/[bcdfghjklmnpqrstvxzwy]/ig);
-    let count = 0;
-    if (consonants) {
-      count = characters.getCharacterCount(consonants);
-    }
-    return count;
+const countRegexMatch = (regex) => {
+  return function(string) {
+    const match = string.match(regex);
+    return match.length;
   }
+}
+
+const characters = {
+  getCharacterCount: (characters = '') => characters.length,
+  countVowls: countRegexMatch(/[aeiou]/gi),
+  countConsonants: countRegexMatch(/[bcdfghjklmnpqrstvxzwy]/ig),
 }
 
 module.exports = characters;
